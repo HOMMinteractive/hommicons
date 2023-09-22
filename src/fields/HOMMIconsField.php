@@ -10,15 +10,15 @@
 
 namespace homm\hommicons\fields;
 
-use craft\elements\Asset;
-use homm\hommicons\assetbundles\hommicons\HOMMIconsAsset;
-
 use Craft;
 use craft\base\ElementInterface;
 use craft\base\Field;
+use craft\base\PreviewableFieldInterface;
+use craft\elements\Asset;
+use craft\helpers\Json;
+use homm\hommicons\assetbundles\hommicons\HOMMIconsAsset;
 use homm\hommicons\HOMMIcons;
 use yii\db\Schema;
-use craft\helpers\Json;
 
 /**
  * Class HOMMIconsField
@@ -27,12 +27,12 @@ use craft\helpers\Json;
  * @package   HOMMIcons
  * @since     0.0.1
  */
-class HOMMIconsField extends Field
+class HOMMIconsField extends Field implements PreviewableFieldInterface
 {
     /**
      * @deprecated only exists for backwards compatibility
      */
-    public $someAttribute = 'Some Default';
+    public $someAttribute = '';
 
     // Static Methods
     // =========================================================================
@@ -111,6 +111,17 @@ class HOMMIconsField extends Field
                 'icons' => $this->getIcons()
             ]
         );
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getTableAttributeHtml(mixed $value, ElementInterface $element): string
+    {
+        return '<span style="display: flex; gap: 7px; align-items: center;">'
+                . '<img src="/' . HOMMIcons::$plugin->getSettings()->iconsVolume . '/icons/' . $value . '.svg" alt="' . $value . '" width="20" height="20" loading="lazy">'
+                . '<label><small>' . $value . '</small></label>'
+                . '</span>';
     }
 
     /**

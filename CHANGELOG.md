@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres
 to [Semantic Versioning](http://semver.org/).
 
+## 1.0.4 - 2023-09-22
+
+- Added: table attribute html
+
 ## 1.0.3 - 2023-03-07
 
 - Fixed: "path not allowed" exception: use icons URL instead of path
