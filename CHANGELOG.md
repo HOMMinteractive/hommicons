@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres
 to [Semantic Versioning](http://semver.org/).
 
+## 1.1.0 - 2024-05-16
+
+- Added: Craft CMS 5.x compatibility
+
 ## 1.0.4 - 2023-09-22
 
 - Added: table attribute html
