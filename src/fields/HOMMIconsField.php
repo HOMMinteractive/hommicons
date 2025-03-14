@@ -116,11 +116,14 @@ class HOMMIconsField extends Field implements PreviewableFieldInterface
     /**
      * @inheritdoc
      */
-    public function getTableAttributeHtml(mixed $value, ElementInterface $element): string
+    public function getPreviewHtml(mixed $value, ElementInterface $element): string
     {
+        if (!$value) {
+            return '';
+        }
         return '<span style="display: flex; gap: 7px; align-items: center;">'
-                . '<img src="/' . HOMMIcons::$plugin->getSettings()->iconsVolume . '/icons/' . $value . '.svg" alt="' . $value . '" width="20" height="20" loading="lazy">'
-                . '<label><small>' . $value . '</small></label>'
+                . '<img src="/' . HOMMIcons::$plugin->getSettings()->iconsVolume . '/icons/' . $value['icon'] . '.svg" alt="' . $value['icon'] . '" width="20" height="20" loading="lazy">'
+                . '<label><small>' . $value['icon'] . '</small></label>'
                 . '</span>';
     }
 
