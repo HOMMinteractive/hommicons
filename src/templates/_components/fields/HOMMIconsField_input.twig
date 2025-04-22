@@ -14,20 +14,21 @@
 #}
 
 {% set value = value ?? '' %}
+{% set iconName = value.icon ?? '' %}
 
-<input type="hidden" name="{{ name }}[icon]" class="iconpicker-icon" value="{{ value.icon }}">
+<input type="hidden" name="{{ name }}[icon]" class="iconpicker-icon" value="{{ iconName }}">
 <p class="iconpicker-msg homm-iconpicker{% if value == '' %}--empty{% endif %}">
     <span class="homm-iconpicker">
         <span class="iconpicker-preview">
            {% for icon in icons %}
-               {% if icon.getFilename(false) == value.icon %}
+               {% if icon.getFilename(false) == iconName %}
                    <img src="{{ icon.getUrl() }}" alt="{{ icon.getFilename(false) }}" loading="lazy">
                {% endif %}
            {% endfor %}
         </span>
     </span>
     <span class="iconpicker-code">
-	    {{ value.icon }}
+        {{ iconName }}
     </span>
 </p>
 <button class="iconpickerField_modaltoggle btn" type="button">{{ 'Choose icon'|t('hommicons') }}</button>
