@@ -64,17 +64,15 @@ class HOMMIconsField extends Field implements PreviewableFieldInterface
      */
     public function normalizeValue(mixed $value, ?\craft\base\ElementInterface $element = null): mixed
     {
-         if (gettype($value) == 'string') {
+        if (gettype($value) == 'string') {
             if (isset(json_decode($value)->icon)) {
                 return json_decode($value)->icon;
             } else {
                 return $value;
             }
-        } 
-        else if (gettype($value) == 'array') {
+        } elseif (gettype($value) == 'array') {
             return $value['icon'];
-        }
-        else {
+        } else {
             return $value;
         }
 
