@@ -13,18 +13,17 @@
  */
 #}
 
-{% set value = value ?? '' %}
-{% set iconName = value.icon ?? '' %}
+{% set iconName = value ?? '' %}
 
 <input type="hidden" name="{{ name }}[icon]" class="iconpicker-icon" value="{{ iconName }}">
-<p class="iconpicker-msg homm-iconpicker{% if value == '' %}--empty{% endif %}">
+<p class="iconpicker-msg homm-iconpicker{% if iconName == '' %}--empty{% endif %}">
     <span class="homm-iconpicker">
         <span class="iconpicker-preview">
-           {% for icon in icons %}
-               {% if icon.getFilename(false) == iconName %}
-                   <img src="{{ icon.getUrl() }}" alt="{{ icon.getFilename(false) }}" loading="lazy">
-               {% endif %}
-           {% endfor %}
+            {% for icon in icons %}
+                {% if icon.getFilename(false) == iconName %}
+                    <img src="{{ icon.getUrl() }}" alt="{{ icon.getFilename(false) }}" loading="lazy">
+                {% endif %}
+            {% endfor %}
         </span>
     </span>
     <span class="iconpicker-code">
@@ -42,7 +41,7 @@
                     {% for icon in icons %}
                         {% if icon.folder == 'icons' %}
                             <span data-val="{{ icon.getFilename(false) }}"
-                                  class="{{ value == icon.getFilename(false) ? 'iconpicker--selected' }}"
+                                  class="{{ iconName == icon.getFilename(false) ? 'iconpicker--selected' }}"
                                   title="{{ icon.getFilename(false) }}"
                             >
                                 <img src="{{ icon.getUrl() }}" alt="{{ icon.getFilename(false) }}" loading="lazy">

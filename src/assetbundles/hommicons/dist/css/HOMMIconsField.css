@@ -64,9 +64,13 @@
     align-items: flex-start;
 }
 
-.iconpicker-code {
+.homm-iconpicker > .iconpicker-code {
     margin-left: 10px !important;
     width: 200px !important;
+    display: flex;
+    flex-grow: 1;
+    text-align: left;
+    line-height: 1.5em !important;
 }
 
 .iconpicker-msg {
