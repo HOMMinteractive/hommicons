@@ -13,7 +13,8 @@
  */
 #}
 
-{% set iconName = value ?? '' %}
+
+{% set iconName = value['icon'] ?? value %}
 
 <input type="hidden" name="{{ name }}[icon]" class="iconpicker-icon" value="{{ iconName }}">
 <p class="iconpicker-msg homm-iconpicker{% if iconName == '' %}--empty{% endif %}">

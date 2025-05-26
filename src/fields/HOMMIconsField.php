@@ -71,7 +71,7 @@ class HOMMIconsField extends Field implements PreviewableFieldInterface
                 return $value;
             }
         } elseif (gettype($value) == 'array') {
-            return $value['icon'];
+            return $value;
         } else {
             return $value;
         }
@@ -124,8 +124,8 @@ class HOMMIconsField extends Field implements PreviewableFieldInterface
             return '';
         }
         return '<span style="display: flex; gap: 7px; align-items: center;">'
-                . '<img src="/' . HOMMIcons::$plugin->getSettings()->iconsVolume . '/icons/' . $value['icon'] . '.svg" alt="' . $value['icon'] . '" width="20" height="20" loading="lazy">'
-                . '<label><small>' . $value['icon'] . '</small></label>'
+                . '<img src="/' . HOMMIcons::$plugin->getSettings()->iconsVolume . '/icons/' . $value . '.svg" alt="' . $value . '" width="20" height="20" loading="lazy">'
+                . '<label><small>' . $value . '</small></label>'
                 . '</span>';
     }
 
