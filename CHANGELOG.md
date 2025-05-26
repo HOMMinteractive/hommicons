@@ -8,7 +8,7 @@ to [Semantic Versioning](http://semver.org/).
 ## 2.0.3 - 2025-05-26
 
 - Added: typeguard to catch array's
-- 
+
 ## 2.0.2 - 2025-05-16
 
 - Added: typeguard to catch parsed array's in normalizeValue

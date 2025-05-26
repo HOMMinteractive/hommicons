@@ -120,12 +120,13 @@ class HOMMIconsField extends Field implements PreviewableFieldInterface
      */
     public function getPreviewHtml(mixed $value, ElementInterface $element): string
     {
+        $iconName = $value['icon'] ?? $value;
         if (!$value) {
             return '';
-        }
+        } 
         return '<span style="display: flex; gap: 7px; align-items: center;">'
-                . '<img src="/' . HOMMIcons::$plugin->getSettings()->iconsVolume . '/icons/' . $value . '.svg" alt="' . $value . '" width="20" height="20" loading="lazy">'
-                . '<label><small>' . $value . '</small></label>'
+                . '<img src="/' . HOMMIcons::$plugin->getSettings()->iconsVolume . '/icons/' . $iconName . '.svg" alt="' . $iconName . '" width="20" height="20" loading="lazy">'
+                . '<label><small>' . $iconName . '</small></label>'
                 . '</span>';
     }
 
