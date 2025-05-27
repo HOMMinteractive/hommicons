@@ -71,7 +71,7 @@ class HOMMIconsField extends Field implements PreviewableFieldInterface
                 return $value;
             }
         } elseif (gettype($value) == 'array') {
-            return $value;
+            return $value['icon'];
         } else {
             return $value;
         }
